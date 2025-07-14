@@ -1,19 +1,15 @@
 pipeline{
     agent any
-   environment {
-        JAVA_VERSION = '21.0'
-        PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
-    }
+
     stages {
         stage('compile') {
             steps {
-                   sh 'javac Test.java'
-                   echo '${JAVA_VERSION}'
+                   bat "javac Test.java"
             }
         }
         stage('run') {
             steps {
-                    sh 'java Test'
+                    bat "java Test"
             }
         }
     }
