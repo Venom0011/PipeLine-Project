@@ -7,13 +7,19 @@ pipeline{
     stages {
         stage('compile') {
             steps {
-                sh 'javac Test.java'
-                echo '${JAVA_VERSION}'
+                script {
+                   sh 'javac Test.java'
+                   echo '${JAVA_VERSION}'
+                }
+               
             }
         }
         stage('run') {
             steps {
-                sh 'java Test'
+                script {
+                    sh 'java Test'
+                }
+                
             }
         }
     }
